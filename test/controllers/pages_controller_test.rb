@@ -2,18 +2,21 @@ require 'test_helper'
 
 class PagesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get pages_index_url
+    get root_path
     assert_response :success
+    assert_select "title", "Index Page | Ruby on Rails Tutorial Lesson"
   end
 
   test "should get about" do
-    get pages_about_url
+    get about_path
     assert_response :success
+    assert_select "title", "About | Ruby on Rails Tutorial Lesson"
   end
 
   test "should get contact" do
-    get pages_contact_url
+    get contact_path
     assert_response :success
+    assert_select "title", "Contact | Ruby on Rails Tutorial Lesson"
   end
 
 end
