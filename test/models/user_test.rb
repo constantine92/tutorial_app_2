@@ -8,6 +8,10 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "should be valid" do
+    @user.username = "constantine92"
+    @user.email = "constantine92@email.com"
+    @user.password = "password"
+    @user.password_confirmation = "password"
     assert @user.valid?
   end
 
@@ -78,7 +82,7 @@ class UserTest < ActiveSupport::TestCase
   end
   
   test "authenticated? should return false when user is nil" do
-    assert_not @user.authenticated?('')
+    assert_not @user.authenticated?(:remember,'')
   end
   
 end
